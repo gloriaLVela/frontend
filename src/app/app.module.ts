@@ -64,4 +64,5 @@ const routes = [
   providers: [ApiService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
