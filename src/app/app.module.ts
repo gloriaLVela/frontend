@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
+//  The router outlet lets angular know where to render the view you are trying to route to
 import { RouterModule } from '@angular/router';
 
 import { ApiService } from './api.service';
