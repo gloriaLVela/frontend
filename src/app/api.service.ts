@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Subject } from 'rxjs'
+import { Subject} from 'rxjs'
 
 @Injectable()
 export class ApiService {
@@ -11,21 +11,17 @@ export class ApiService {
     private selectedQuiz = new Subject<any>();
     quizSelected = this.selectedQuiz.asObservable();
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {}
 
-    getQuestion(question) {
-        return this.http.get('http://localhost:63100/api/questions');
-    }
-
-    getQuestions(quizId) {
+    getQuestions(quizId){
         return this.http.get(`http://localhost:63100/api/questions/${quizId}`);
     }
 
-    getQuizzes() {
+    getQuizzes(){
         return this.http.get('http://localhost:63100/api/quizzes');
     }
 
-    postQuestion(question) {
+    postQuestion(question){
         this.http.post('http://localhost:63100/api/questions', question).subscribe(res => {
             console.log(res)
         })
@@ -34,10 +30,10 @@ export class ApiService {
     putQuestion(question) {
         this.http.put(`http://localhost:63100/api/questions/${question.id}`, question).subscribe(res => {
             console.log(res)
-        })
+        }) 
     }
 
-    postQuiz(quiz) {
+    postQuiz(quiz){
         this.http.post('http://localhost:63100/api/quizzes', quiz).subscribe(res => {
             console.log(res)
         })
@@ -46,9 +42,9 @@ export class ApiService {
     putQuiz(quiz) {
         this.http.put(`http://localhost:63100/api/quizzes/${quiz.id}`, quiz).subscribe(res => {
             console.log(res)
-        })
+        }) 
     }
-
+    
     selectQuestion(question) {
         this.selectedQuestion.next(question)
     }

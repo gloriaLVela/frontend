@@ -5,16 +5,19 @@ import {
   MatFormFieldModule,
   MatInputModule
 } from '@angular/material';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //  The router outlet lets angular know where to render the view you are trying to route to
 import { RouterModule } from '@angular/router';
 
 import { ApiService } from './api.service';
+import { AuthService } from './auth.service';
+import { AuthInterceptor } from './auth.interceptor';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
@@ -23,6 +26,7 @@ import { QuestionsComponent } from './questions.component';
 import { QuizComponent } from './quiz.component';
 import { QuizzesComponent } from './quizzes.component';
 import { NavComponent } from './nav.component';
+import { RegisterComponent } from './register.component';
 
 
 
@@ -30,7 +34,7 @@ const routes = [
   { path: '', component: HomeComponent },
   { path: 'question', component: QuestionComponent },
   { path: 'question/:quizId', component: QuestionComponent },
-  { path: 'questions', component: QuestionsComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'quiz', component: QuizComponent }
 ]
 
@@ -42,7 +46,8 @@ const routes = [
     QuestionsComponent,
     QuizComponent,
     QuizzesComponent,
-    NavComponent
+    NavComponent,
+    RegisterComponent
 
   ],
 
@@ -58,11 +63,16 @@ const routes = [
     MatInputModule,
     MatListModule,
     MatToolbarModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
 
 
   ],
-  providers: [ApiService],
+  providers: [ApiService, AuthService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 

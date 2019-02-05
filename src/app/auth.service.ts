@@ -1,0 +1,16 @@
+import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
+import { Subject } from 'rxjs'
+
+@Injectable()
+export class AuthService {
+
+    constructor(private http: HttpClient) { }
+
+    register(credentials) {
+        this.http.post<any>(`http://localhost:63100/api/account`, credentials).subscribe(res => {
+            //console.log('here');
+            localStorage.setItem('token', res);
+        })
+    }
+}

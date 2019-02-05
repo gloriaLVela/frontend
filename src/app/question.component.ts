@@ -13,8 +13,8 @@ export class QuestionComponent {
     constructor(private api: ApiService, private route: ActivatedRoute){}
 
     ngOnInit(){
-        this.quizId = this.route.snapshot.paramMap.get('quizId')
-        this.api.questionSelected.subscribe(question => this.question = question)
+        this.quizId = this.route.snapshot.paramMap.get('quizId');
+        this.api.questionSelected.subscribe(question => this.question = question);
 
     }
 
