@@ -7,6 +7,10 @@ export class AuthService {
 
     constructor(private http: HttpClient, private router: Router) { }
 
+    get isAuthenticated() {
+        return !!localStorage.getItem('token')
+    }
+    
     register(credentials) {
         this.http.post<any>(`http://localhost:63100/api/account`, credentials).subscribe(res => {
             this.authenticate(res);
@@ -24,5 +28,9 @@ export class AuthService {
 
         // Navigate to the home view after we login
         this.router.navigate(['/'])
+    }
+
+    logout(){
+        localStorage.removeItem('token');
     }
 }
