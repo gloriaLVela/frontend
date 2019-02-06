@@ -27,6 +27,7 @@ import { QuizComponent } from './quiz.component';
 import { QuizzesComponent } from './quizzes.component';
 import { NavComponent } from './nav.component';
 import { RegisterComponent } from './register.component';
+import { LoginComponent } from './login.component';
 
 
 
@@ -35,6 +36,7 @@ const routes = [
   { path: 'question', component: QuestionComponent },
   { path: 'question/:quizId', component: QuestionComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'quiz', component: QuizComponent }
 ]
 
@@ -42,6 +44,7 @@ const routes = [
   declarations: [
     AppComponent,
     HomeComponent,
+    LoginComponent,
     QuestionComponent,
     QuestionsComponent,
     QuizComponent,
