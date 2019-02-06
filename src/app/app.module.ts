@@ -21,6 +21,7 @@ import { AuthInterceptor } from './auth.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
+import { PlayComponent } from './play.component';
 import { QuestionComponent } from './question.component';
 import { QuestionsComponent } from './questions.component';
 import { QuizComponent } from './quiz.component';
@@ -37,7 +38,8 @@ const routes = [
   { path: 'question/:quizId', component: QuestionComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'quiz', component: QuizComponent }
+  { path: 'quiz', component: QuizComponent },
+  { path: 'play', component: PlayComponent }
 ]
 
 @NgModule({
@@ -45,6 +47,7 @@ const routes = [
     AppComponent,
     HomeComponent,
     LoginComponent,
+    PlayComponent,
     QuestionComponent,
     QuestionsComponent,
     QuizComponent,
