@@ -23,6 +23,7 @@ import { AuthInterceptor } from './auth.interceptor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FinishedComponent } from './finished.component';
 import { HomeComponent } from './home.component';
 import { PlayComponent } from './play.component';
 import { PlayQuizComponent } from './playquiz.component';
@@ -50,6 +51,7 @@ const routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    FinishedComponent,
     HomeComponent,
     LoginComponent,
     PlayComponent,
@@ -88,7 +90,8 @@ const routes = [
     useClass: AuthInterceptor,
     multi: true
   }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [FinishedComponent]
 })
 
 export class AppModule { }

@@ -35,6 +35,7 @@ export class PlayQuizComponent {
         });
 
         let dialogRef = this.dialog.open(FinishedComponent, {
+            // Pass data to the finished component
             data: { correct, total: this.questions.length }
         });
 
