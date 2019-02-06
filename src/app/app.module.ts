@@ -7,9 +7,12 @@ import {
 } from '@angular/material';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //  The router outlet lets angular know where to render the view you are trying to route to
 import { RouterModule } from '@angular/router';
@@ -22,6 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
 import { PlayComponent } from './play.component';
+import { PlayQuizComponent } from './playquiz.component';
 import { QuestionComponent } from './question.component';
 import { QuestionsComponent } from './questions.component';
 import { QuizComponent } from './quiz.component';
@@ -39,7 +43,8 @@ const routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'quiz', component: QuizComponent },
-  { path: 'play', component: PlayComponent }
+  { path: 'play', component: PlayComponent },
+  { path: 'playQuiz/:quizId', component: PlayQuizComponent }
 ]
 
 @NgModule({
@@ -48,6 +53,7 @@ const routes = [
     HomeComponent,
     LoginComponent,
     PlayComponent,
+    PlayQuizComponent,
     QuestionComponent,
     QuestionsComponent,
     QuizComponent,
@@ -65,9 +71,12 @@ const routes = [
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
+    MatDialogModule,
+    MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
     MatListModule,
+    MatRadioModule,
     MatToolbarModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
